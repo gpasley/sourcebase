@@ -1,0 +1,27 @@
+<div id="l_sidebar">
+	
+</div>
+
+<div id="r_sidebar">
+  	
+</div>
+
+<div id="content">
+<h2><%= @title %></h2>
+<div id="widget">
+	<%= render :partial => 'browse_companies'%>
+</div>
+<table width="100%">
+  
+<% @companies.in_groups_of(3, false) do |row_companies| %>
+  <tr>
+    <% for company in row_companies %>
+      <td width="33%"><%= link_to company.company_name, company %></td>
+   <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+</div>

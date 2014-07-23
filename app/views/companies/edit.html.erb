@@ -1,0 +1,13 @@
+<div id="l_sidebar">
+  <div id="widget2">
+  	<%= render :partial => 'info_new_company'%>
+  </div>
+</div>
+<div id="form">
+<h1>Editing company</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Cancel', @company %> |
+<%= link_to 'Back', companies_path %>
+</div>

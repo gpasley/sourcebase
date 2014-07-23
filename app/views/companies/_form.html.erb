@@ -1,0 +1,121 @@
+<%= form_for(@company, :html => {:multipart => true}) do |f| %>
+  <% if @company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+      <ul>
+      <% @company.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <table width="100%">
+  <tr>
+    <td><%= f.label :company_name %></td>
+    <td><%= f.text_field :company_name %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :description %></td>
+    <td><%= f.text_field :description %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :blog_url %></td>
+    <td><%= f.text_field :blog_url %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :website %></td>
+    <td><%= f.text_field :website %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :twitter %></td>
+    <td><%= f.text_field :twitter %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :phone %></td>
+    <td><%= f.text_field :phone %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :email %></td>
+    <td><%= f.text_field :email %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :overview %></td>
+    <td><%= f.text_area :overview %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :category %></td>
+    <td><%= f.collection_select(:category, @categories, :title, :title, {:prompt => ''}) %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :number_of_employees %></td>
+    <td><%= f.text_field :number_of_employees %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :stock_symbol %></td>
+    <td><%= f.text_field :stock_symbol %></td>
+  </tr>
+  <tr>
+   <td><%= f.label :blog_feed_url %></td>
+    <td><%= f.text_field :blog_feed_url %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :founded_on %></td>
+    <td><%= f.datetime_select(:founded_on, :start_year => 1970, :discard_day => true, :include_blank => true,
+          :order => [:year], :discard_hour => true, :discard_month => true) %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :address1 %></td>
+    <td><%= f.text_field :address1 %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :address2 %></td>
+    <td><%= f.text_field :address2 %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :city %></td>
+    <td><%= f.text_field :city %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :state_code %></td>
+    <td><%= f.text_field :state_code %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :country %></td>
+    <td><%= f.text_field :country %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :postal_code %></td>
+    <td><%= f.text_field :postal_code %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :deleted %></td>
+    <td><%= f.check_box :deleted %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :facebook %></td>
+    <td><%= f.text_field :facebook %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :youtube %></td>
+    <td><%= f.text_field :youtube %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :logo %></td>
+    <td><%= f.file_field :logo %></td>
+  </tr>
+  <tr>
+	<td>Tags:</td>
+	<td><%= f.text_field :tag_list %></td>
+  </tr>
+  <tr>
+    <td colspan="2"><%= f.submit %></td>
+  </tr>
+  <%= f.fields_for :products do |builder| %>
+    <%= builder.label :product_name, "Product" %>
+    <%= builder.text_field :product_name %>
+   
+  <% end %>
+</table>
+<% end %>

@@ -1,0 +1,65 @@
+<table>
+  <th colspan="2" align="left">General Information</th>
+  <% if @company.description > '' %>
+  <tr>
+	<td class="label" align="right">Description</td>
+	<td class="data_info"><%=h @company.description %></td>
+  <tr>
+  <% end %>
+  <% if @company.category > '' %>
+  <tr>
+    <td class="label" align="right">Category</td>
+	<td class="data_info"><%=h @company.category %></td>
+  <tr>  
+  <% end %>
+  <% if @company.website > '' %>
+  <tr>
+    <td class="label" align="right">Homepage</td>
+	<td class="data_info"><%=link_to @company.website.gsub(/(http:\/\/www.|https:\/\/www.|http:\/\/|https:\/\/|\/)/,''), @company.website, :target => "_blank"%> </td>
+  <tr>  
+  <% end %>
+
+  <% if @company.blog_url > '' %>
+  <tr>
+    <td class="label" align="right">Blog</td>
+	<td class="data_info"><%=link_to @company.blog_url.gsub(/(http:\/\/www.|https:\/\/www.|\/)/,''), @company.blog_url, 
+	  :target => "_blank" %> </td>
+  <tr>  
+  <% end %>
+  <% if @company.twitter > '' %>
+  <tr>
+    <td class="label" align="right">Twitter</td>
+	<td class="data_info"><%=link_to "@" + @company.twitter, "http://twitter.com/" + @company.twitter, :target => "_blank" %></td>
+  <tr>  
+  <% end %>
+  <% if @company.phone > '' %>
+  <tr>
+    <td class="label" align="right">Phone</td>
+	<td class="data_info"><%=h @company.phone %></td>
+  <tr>  
+  <% end %>
+  <% if @company.email > '' %>
+  <tr>
+    <td class="label" align="right">Email</td>
+	<td class="data_info"><%= mail_to (@company.email) %></td>
+  <tr>  
+  <% end %>
+  <% if @company.number_of_employees > '' %>
+  <tr>
+    <td class="label" align="right">Employees</td>
+	<td class="data_info"><%=h @company.number_of_employees %></td>
+  <tr>  
+  <% end %>
+  <% if @company.founded_on != nil %>
+  <tr>
+    <td class="label" align="right">Founded</td>
+	<td class="data_info"><%=h @company.founded_on.year %></td>
+  <tr>  
+  <% end %>
+  <% if @company.stock_symbol > '' %>
+  <tr>
+    <td class="label" align="right">Stock</td>
+	<td class="data_info"><%=link_to @company.stock_symbol, "http://finance.yahoo.com/q?s=" + @company.stock_symbol, :target => "_blank" %></td>
+  <tr>  
+  <% end %>
+</table>

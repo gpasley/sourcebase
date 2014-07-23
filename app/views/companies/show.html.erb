@@ -1,0 +1,47 @@
+<div id="l_sidebar">
+	<div id="widget">
+  		<%= render :partial => 'info_company_function'%>
+	</div>
+	<div id="widget">
+  		<%= render :partial => 'info_company'%>
+	</div>
+	<% if @map > '' %>
+	<div id="widget">
+  		<%= render :partial => 'info_company_office'%>
+	</div>
+	<% end %>
+	<div id="widget">
+  		<%= render :partial => 'info_company_tags'%>
+	</div>
+</div>
+
+
+
+<div id="content">
+
+<table width="100%">
+  <tr>
+	
+      <td><h1><%=h @company.company_name %></h1></td>
+ 
+  </tr>
+  <tr><td><%= image_tag @company.logo_url.to_s %></td></tr>
+  <tr><td>&nbsp;</td></tr>
+  <tr>
+    <td><%=h @company.overview %></td>
+  </tr>
+</table>
+
+<table width="100%">
+  <tr>
+	<td><h2>Products</h2></td>
+    <td align="right"><%=link_to "Add Product", :controller => "companies", :action => "add_products", :id => @company %></td>
+  </tr>
+  <% @products.each do |product| %>
+  <tr>
+    <td colspan="2"><%= link_to product.product_name, product %></td>
+  </tr>
+<% end %>
+</table>
+
+</div>

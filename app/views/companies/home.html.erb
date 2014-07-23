@@ -1,0 +1,33 @@
+<table id="table_homepage">
+<tr>
+<td id="featured_section" colspan="2">
+	<p align="center"><i>Featured Section</i></td>
+</tr>
+<tr>
+	<td id="border1" colspan="2">
+	<img border="0" src="images/spacer_clear.gif" width="1" height="6"></td>
+</tr>
+<tr>
+	<td id="border2" colspan="2">
+	</td>
+</tr>
+<tr>
+	<td id="border3" colspan="2">
+	</td>
+</tr>
+<tr>
+	<td id="recent" colspan="2" align="center">
+		<% @comp_new.each do |company| %>
+		    <%= link_to company.company_name, company %>&nbsp;&nbsp;&nbsp;
+		<% end %>
+	</td>
+</tr>
+<tr>
+	<td id="border3" colspan="2">
+	</td>
+</tr>
+<tr>
+	<td id="border4" height="2" bgcolor="#c6dee7" colspan="2">
+	</td>
+</tr>
+</table>

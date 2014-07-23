@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta name="description" content="<%=h @meta_content %>" />
+  <meta name="keywords" content="<%=h @meta_tags %>" />
+  <title><%=@curr_link %> - SourceBase</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults, :cache => true %>
+
+  <%= csrf_meta_tag %>
+</head>
+<body id="<%=@body_id%>">
+  
+	    <div id="header">
+		  <%= render :partial => 'layouts/header'%>
+	    </div>
+        <div id="menu">
+		  <%= render :partial => 'layouts/menu_nav'%>
+	    </div>
+	  
+        <p style="color: green"><%= flash[:notice] %></p>
+  		  <div id="main">
+
+			<%= yield %>
+   
+		  </div>
+	
+		<div id="footer" align="center">
+		  <%= render :partial => 'layouts/footer'%>
+	    </div>
+	  
+</body>
+</html>

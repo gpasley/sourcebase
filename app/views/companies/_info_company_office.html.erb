@@ -1,0 +1,24 @@
+<% if (@company.address1 != nil) || (@company.address2 != nil) || (@company.state) || (@company.postal_code) || (@company.country) %>
+<table>
+  <th align="left" width="200px">Main Office</th>
+  
+  <tr>
+    <td colspan="2" class="data_info" valign="top">
+		<%=h @company.address1 %><br>
+		<% if @company.address2 != nil %>
+		  <%=h @company.address2 %><br>
+		<% end 
+		if @company.city != nil %>
+		<%=h @company.city %>, 
+		<% end %>
+		<%=h @company.state_code %> <%=h @company.postal_code %><br>
+		<% if @company.country != nil %>
+		  <%=h @company.country %><br>
+		<% end %>
+		<% if @map > '' %>
+		    <a href="http://maps.google.com/maps?q=<%=@map%>" target="_blank">Map</a>
+		  <% end %>
+	</td>
+  </tr>
+</table>
+<% end %>

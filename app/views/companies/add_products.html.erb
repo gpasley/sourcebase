@@ -1,0 +1,22 @@
+<div id="content">
+	
+<h3>&nbsp;<%= @title %></h3>
+<table>
+<%= form_for @company do |f| %>
+  <%= f.fields_for :products do |builder| %>
+  <tr>
+    <td>
+	  <%= render 'product_fields', :f => builder %>
+    </td>
+  </tr>
+  
+  <% end %>
+<tr><td><p><%= link_to_add_fields "Add product", f, :products %></p></td></tr>
+ <%= f.submit %>
+<% end %>
+</table>
+</div>
+<div id="browse-companies">
+  <% #render :partial => 'layouts/brw_companies'%>
+</div>
+

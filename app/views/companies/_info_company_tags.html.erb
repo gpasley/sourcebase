@@ -1,0 +1,8 @@
+<table>
+  <th colspan="2" align="left">Tags</th>
+  <% unless @company.tags.empty? %>
+  <tr>
+	<td colspan="2" class="data_info"><%=h @company.tag_list %></td>
+  <tr>
+  <% end %>
+</table>
